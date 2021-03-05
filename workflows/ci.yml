@@ -12,5 +12,10 @@ jobs:
           MEINE_VARIABLE: asef
     steps:
       - uses: actions/checkout@v1
-      env:
-          MEINE_VARIABLE: jklö
+      - name: Use Node.js 15.x
+        uses actions/setup-node@v1
+        with:
+            node-version: 15.x
+      -run: npm install -g yarn
+      -run: yarn install
+      -run: yarn run test
