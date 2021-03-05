@@ -1,23 +1,20 @@
 # .github/workflows/ci.yml
 
-name: Unsere CI Pieline
+name: Unsere CI Pipeline
 
 on: push
 
 jobs:
-
-  tests:
-    runs-on: ubuntu-latest
-    env:
-          MEINE_VARIABLE: asef
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 15.x
-        uses: actions/setup-node@v1
-        with:
-            node-version: 15.x
-      -run: npm install -g yarn
-      -run: yarn install
-      -run: yarn run test
-          env:
-              MEINE_UMGEBUNGS_VARIABLE: ${{ secrets.MEINE_UMGEBUNGS_VARIABLE }}
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 15.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 15.x
+            - run: npm install -g yarn
+            - run: yarn install
+            - run: yarn run test
+              env:
+                  MEINE_UMGEBUNGS_VARIABLE: ${{ secrets.MEINE_UMGEBUNGS_VARIABLE }}
