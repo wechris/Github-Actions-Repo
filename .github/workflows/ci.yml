@@ -21,11 +21,11 @@ jobs:
             - run: yarn run test
               env:
                   MEINE_UMGEBUNGS_VARIABLE: ${{ secrets.MEINE_UMGEBUNGS_VARIABLE }}
-            -name: Artefakte hochladen
+            - name: Artefakte hochladen
               uses: actions/upload-artifact@v2
               with:
-                name: Mein-Test-Artefakt
-                path: ./package.json
+                  name: Mein-Test-Artefakt
+                  path: ./package.json
 
     deploy:
         runs-on: ubuntu-latest
